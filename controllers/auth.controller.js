@@ -65,6 +65,7 @@ export const login = async (req, res) => {
         httpOnly: true,
         maxAge: age,
       })
+      
       .status(200)
       .json(userInfo);
   } catch (error) {
