@@ -10,6 +10,8 @@ export const register = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     
+
+    
     const newUser = await prisma.user.create({
       data: {
         username,
@@ -64,6 +66,9 @@ export const login = async (req, res) => {
       .cookie("token", token, {
         httpOnly: true,
         maxAge: age,
+        secure: true, 
+        sameSite: "strict" 
+
       })
       
       .status(200)
